@@ -4,9 +4,6 @@ library(gapminder) #loading gapminder data package
 
 gap <- gapminder
 
-#COMMENT ALL CODE BEFORE YOU SUBMIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#ADD REFERENCE TO GAPMINDER DATA!!!!!!!!!
-
 ui <- fluidPage( #Our user interface
   img(src= "images.jpeg"), #A beautiful relevant image to make app more visually appealing
   titlePanel("Gapminder Dataset"), #The title of our app
