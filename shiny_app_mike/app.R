@@ -10,16 +10,37 @@ ui <- navbarPage("Application", #Our user interface
   theme = bs_theme(bg = "#0b3d91", fg = "white", primary = "#FCC780",
                    base_font = font_google("Impact"),
                    code_font = font_google("Space Mono")),
+  tabPanel("About",
+           sidebarLayout( #Defining sidebar
+             sidebarPanel( #What goes in the sidebar
+               titlePanel("Gapminder Dataset"), #The title of our app
+               h3("Explore the World!"), #Brief description of our app
+               img(src= "images.jpeg")
+           ),
+           mainPanel(
+             HTML("Welcome!
+             <br>
+             <br>
+             This application will help you learn about the World by exploring
+             the",
+                ),
+             tags$a(href="https://gapminder.org/data/", "Gapminder dataset", target="_blank"),
+             HTML(". <br><br> On the <strong>Table</strong> page, you will be able to select the country
+                  of your choosing and explore some of the interesting facts about that country, such as its
+                  continent as well as life expectancy, GDP per capita and population by year. <br><br>
+                  On the <b>Plot</b> page, you will be able to select the country as well as
+                  a criterion and predictor variable and plot the results visually, how exciting!")
+           ))),
   tabPanel("Table",
            sidebarLayout( #Defining sidebar
              sidebarPanel( #What goes in the sidebar
                titlePanel("Gapminder Dataset"), #The title of our app
                h3("Explore the World!"), #Brief description of our app
                img(src= "images.jpeg"),
-               uiOutput("COUNTRY"),
+               uiOutput("COUNTRY")
                ),
              mainPanel(
-               h4(textOutput("my_text"), "is a lovely country to explore!", inline=FALSE),
+               h4(textOutput("my_text"), "is a lovely country to explore!"),
                tableOutput("results"),
                downloadButton("dl_data", "Download Data")
              )
@@ -41,7 +62,7 @@ ui <- navbarPage("Application", #Our user interface
                             selected = "lifeExp")
                ),
              mainPanel(
-             h3("can i say something?"),
+             h5("Select the country and desired variables and plot the results!"),
              plotOutput("plot_1")
              )
     )
