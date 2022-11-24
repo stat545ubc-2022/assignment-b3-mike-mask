@@ -1,0 +1,11 @@
+name: shiny_app_mike
+title:
+username:
+account: mike-mask
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7718086
+bundleId: 6548375
+url: https://mike-mask.shinyapps.io/shiny_app_mike/
+when: 1669234170.11519
+lastSyncTime: 1669234170.11521
