@@ -19,6 +19,7 @@ ui <- navbarPage("Application", #Our user interface
                uiOutput("COUNTRY"),
                ),
              mainPanel(
+               h4(textOutput("my_text"), "is a lovely country to explore!", inline=FALSE),
                tableOutput("results"),
                downloadButton("dl_data", "Download Data")
              )
@@ -52,6 +53,9 @@ server <- function(input, output) { #Defining our server
   filtered <- reactive({ #Creating a reactive filter as its own variable in this function
     gap %>% #Start with gapminder dataset
       filter(country == input$COUNTRY) #Filters for whichever country users select from sidebar box
+  })
+  output$my_text <- renderText({
+    input$COUNTRY
   })
   output$plot_1 <- renderPlot({
     ggplot(filtered(), aes_string(x = input$predictor, y = input$criterion))+
