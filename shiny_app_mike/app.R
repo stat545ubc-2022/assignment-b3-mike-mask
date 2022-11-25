@@ -43,7 +43,7 @@ ui <- navbarPage("Application", #Our user interface, navbarPage let's us create 
                ),
              mainPanel( #main panel of Table page
                #whichever country is selected that country will be output as part of the text!
-               h4(textOutput("my_text"), "is a lovely country to explore!"),
+               h4(textOutput("my_text", inline = T), "is a lovely country to explore!"),
                tableOutput("results"), #displays the table of selected country
                downloadButton("dl_data", "Download Data") #enables users to download selected data as csv file
              )
@@ -65,7 +65,10 @@ ui <- navbarPage("Application", #Our user interface, navbarPage let's us create 
                             selected = "lifeExp") #lets users select criterion variable for plot, with default option being lifeExp
                ),
              mainPanel( #main panel of plot page
-             h5("Select the country and desired variables and plot the results!"),
+             h5("Plotting..."),
+             h4("Country: ", textOutput("plot_text", inline=T)),
+             h4("X-axis: ", textOutput("predictor_text", inline=T)),
+             h4("Y-axis: ", textOutput("criterion_text", inline=T)),
              plotOutput("plot_1") #displays the plot
              )
     )
@@ -78,9 +81,19 @@ server <- function(input, output) { #Defining our server
     gap %>% #Start with gapminder dataset
       filter(country == input$COUNTRY) #Filters for whichever country users select from sidebar box
   })
-  #below is what creates the text to display selected country
+  #below is what creates the text to display selected country for table page
   output$my_text <- renderText({
     input$COUNTRY
+  })
+  #below is what creates text to display selected country for plot page
+  output$plot_text <- renderText({
+    input$COUNTRY_2
+  })
+  output$predictor_text <- renderText({
+    input$predictor
+  })
+  output$criterion_text <- renderText({
+    input$criterion
   })
   #below creates the plot displayed on plot page with data filtered for selected country and x and y being selected inputs via radiobuttons
   output$plot_1 <- renderPlot({
@@ -91,12 +104,12 @@ server <- function(input, output) { #Defining our server
     filtered() #using the filtered dataset
   })
   output$COUNTRY <- renderUI({ #Making input box dynamic
-    selectInput("COUNTRY", "Country", #Creating the input box that goes in UI
+    selectInput("COUNTRY", "Select the country", #Creating the input box that goes in UI
                 sort(unique(gap$country)), #Sort options in input box
                 selected = "Canada") #Default option is Canada
   })
   output$COUNTRY_2 <- renderUI({ #Making input box dynamic
-    selectInput("COUNTRY", "Country", #Creating the input box that goes in UI
+    selectInput("COUNTRY_2", "Select the country", #Creating the input box that goes in UI
                 sort(unique(gap$country)), #Sort options in input box
                 selected = "Canada") #Default option is Canada
   })
