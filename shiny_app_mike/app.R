@@ -69,7 +69,7 @@ ui <- navbarPage("Application", #Our user interface, navbarPage let's us create 
              h4("Country: ", textOutput("plot_text", inline=T)),
              h4("X-axis: ", textOutput("predictor_text", inline=T)),
              h4("Y-axis: ", textOutput("criterion_text", inline=T)),
-             plotOutput("plot_1") #displays the plot
+             plotOutput("plot_1"), #displays the plot
              )
     )
   )
