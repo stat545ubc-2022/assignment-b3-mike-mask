@@ -4,7 +4,7 @@ Please check out my Shiny App [here](https://mike-mask.shinyapps.io/shiny_app_mi
 
 # Option 3
 
-**Shiny App**: I chose to continue developing my shiny application for this assignment.
+**Shiny App**: I chose to continue developing my shiny application for this assignment. I have added several new features, such as navigation pages, radio buttons, an interactive plot, and several reactive text expressions. I have also added a theme which makes the application more aesthetically pleasing.
 
 # App Description
 
