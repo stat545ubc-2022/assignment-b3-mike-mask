@@ -8,7 +8,7 @@ thematic::thematic_shiny() #this function renders our theme to also affect plots
 
 ui <- navbarPage("Application", #Our user interface, navbarPage let's us create diff pages for the app
                  #the function below this lets us set some theme options!
-  theme = bs_theme(bg = "#0b3d91", fg = "white", primary = "#FCC780",
+  theme = bs_theme(bg = "#0b3891", fg = "white", primary = "#edb76f",
                    base_font = font_google("Impact"),
                    code_font = font_google("Space Mono")),
   tabPanel("About", #create a page talking about the app with use instructions
