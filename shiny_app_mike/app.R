@@ -81,6 +81,10 @@ server <- function(input, output) { #Defining our server
     gap %>% #Start with gapminder dataset
       filter(country == input$COUNTRY) #Filters for whichever country users select from sidebar box
   })
+  filtered_2 <- reactive({ #Creating a reactive filter as its own variable in this function
+    gap %>% #Start with gapminder dataset
+      filter(country == input$COUNTRY_2) #Filters for whichever country users select from sidebar box
+  })
   #below is what creates the text to display selected country for table page
   output$my_text <- renderText({
     input$COUNTRY
@@ -97,7 +101,7 @@ server <- function(input, output) { #Defining our server
   })
   #below creates the plot displayed on plot page with data filtered for selected country and x and y being selected inputs via radiobuttons
   output$plot_1 <- renderPlot({
-    ggplot(filtered(), aes_string(x = input$predictor, y = input$criterion))+
+    ggplot(filtered_2(), aes_string(x = input$predictor, y = input$criterion))+
       geom_point()
   })
   output$results <- renderTable({ #output for our table
