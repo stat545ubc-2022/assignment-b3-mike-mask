@@ -2,13 +2,13 @@
 
 Please check out my Shiny App [here](https://mike-mask.shinyapps.io/shiny_app_mike/).
 
-# Option B
+# Option 3
 
-I chose Option B to make my own Shiny App.
+**Shiny App**: I chose to continue developing my shiny application for this assignment.
 
 # App Description
 
-This is just the beginning of the app: it is a fun application to learn more about the countries of the world, such as what continent they are in and what the population, life expectancy and GDP per capita are in a given year. The app allows the user to easily select which country's data they are interested in exploring by selecting the country in the sidebar. The app also enables users to easily download the data that is being displayed. Lastly, there is a lovely and relevant image of the world at the top which breathes aesthetic life into the app and conjours up an image in the user's mind of exploring the world, which certainly adds to the user experience.
+This is a simple yet fun application. The "About" page orients the user to what the application's purpose is and provides a brief instructional description of the other two pages of the application. The "Table" page enables the user to select a country in order to explore the related data and provides a feature to download the data as a csv file. The "Plot" page enables the user to visualize data in the form of a scatterplot: they can choose which country they would like to explore and then select the predictor variable and criterion variable from the radio buttons in the sidebar pannel. Additionally, there are helpful reactive text displays above both the table as well as plot, reminder users which options they have select. Lastly, there is a lovely and relevant image of the world at the top of the sidebar which breathes aesthetic life into the app and conjours up an image in the user's mind of exploring the world, which certainly adds to the user experience.
 
 # Data Acknowledgement 
 Learn more about the Gapminder data set [here](https://www.gapminder.org/data/).
